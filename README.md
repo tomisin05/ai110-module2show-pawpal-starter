@@ -112,14 +112,6 @@ python main.py
 
 ![](image2.png)
 
-> _(Add a screenshot here after running `streamlit run app.py`)_
-
-```
-<a href="screenshot.png" target="_blank">
-  <img src="screenshot.png" title="PawPal App" width="800" alt="PawPal App" class="center-block" />
-</a>
-```
-
 ---
 
 ## 🧪 Testing PawPal+
