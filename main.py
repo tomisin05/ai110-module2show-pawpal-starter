@@ -30,23 +30,23 @@ whiskers.add_task(Task("Grooming",    "09:00", "once",   "Whiskers", today))
 scheduler = Scheduler(owner)
 scheduler.print_schedule()
 
-# # ── 5. Demonstrate Filtering ───────────────────────────────────────────────────
-# print("── Buddy's Tasks Only ──────────────────────────")
-# for t in scheduler.filter_tasks(pet_name="Buddy"):
-#     print(f"  {t}")
+# ── 5. Demonstrate Filtering ───────────────────────────────────────────────────
+print("── Buddy's Tasks Only ──────────────────────────")
+for t in scheduler.filter_tasks(pet_name="Buddy"):
+    print(f"  {t}")
 
-# print("\n── Pending Tasks Only ──────────────────────────")
-# for t in scheduler.filter_tasks(status="pending"):
-#     print(f"  {t}")
+print("\n── Pending Tasks Only ──────────────────────────")
+for t in scheduler.filter_tasks(status="pending"):
+    print(f"  {t}")
 
-# # ── 6. Mark a task complete and show recurrence ────────────────────────────────
-# print("\n── Marking 'Morning Feed' complete... ──────────")
-# for task in buddy.tasks:
-#     if task.description == "Morning Feed":
-#         next_task = task.mark_complete()
-#         if next_task:
-#             buddy.add_task(next_task)
-#             print(f"  ✅ Task completed. Next occurrence added: {next_task}")
+# ── 6. Mark a task complete and show recurrence ────────────────────────────────
+print("\n── Marking 'Morning Feed' complete... ──────────")
+for task in buddy.tasks:
+    if task.description == "Morning Feed":
+        next_task = task.mark_complete()
+        if next_task:
+            buddy.add_task(next_task)
+            print(f"  ✅ Task completed. Next occurrence added: {next_task}")
 
-# # ── 7. Reprint to confirm changes ─────────────────────────────────────────────
-# scheduler.print_schedule()
+# ── 7. Reprint to confirm changes ─────────────────────────────────────────────
+scheduler.print_schedule()
