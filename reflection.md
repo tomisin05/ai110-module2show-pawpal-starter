@@ -12,10 +12,10 @@ A user must be able to:
 
 ### Classes
 
-- **`Task`** — The atomic unit. Each task holds a description, time, frequency, completion status, and due date. Using a Python `@dataclass` kept attribute declaration clean and avoided boilerplate `__init__` code.
-- **`Pet`** — An intermediate container. It owns a list of `Task` objects and provides helper methods for adding, removing, and filtering tasks. Using a dataclass here again kept pet attributes readable.
+- **`Task`** — The atomic unit. Each task holds a description, time, frequency, completion status, and due date.
+- **`Pet`** — An intermediate container. It owns a list of `Task` objects and provides helper methods for adding, removing, and filtering tasks.
 - **`Owner`** — The top-level entity. An Owner owns a list of `Pet` objects and aggregates all tasks across them. This is the single source of truth for the entire system.
-- **`Scheduler`** — The only non-dataclass, because it holds _behavior_, not data. It receives an `Owner` instance and acts as the engine for sorting, filtering, conflict detection, and recurrence.
+- **`Scheduler`** — The a non-dataclass, because it holds _behavior_, not data. It receives an `Owner` instance and acts as the engine for sorting, filtering, conflict detection, and recurrence.
 
 **b. Design changes**
 
@@ -23,7 +23,7 @@ When I asked Copilot to review my initial skeleton, it flagged two things:
 
 1. **Missing `pet_name` on Task** — My first draft had Tasks that only knew their description and time. Copilot pointed out that once a Scheduler aggregates tasks from multiple pets, you lose track of which pet each task belongs to. I added a `pet_name: str` field to `Task` to solve this.
 
-2. **`Scheduler` should receive `Owner`, not a list of pets directly** — My first instinct was to pass `Scheduler` a flat list of pets. Copilot suggested passing the whole `Owner` so the Scheduler has access to owner-level context (e.g., the owner's name for display). I agreed — it makes the interface cleaner and doesn't complicate the implementation.
+2. **`Scheduler` should receive `Owner`, not a list of pets directly** — My first instinct was to pass `Scheduler` a flat list of pets. Copilot suggested passing the whole `Owner` so the Scheduler has access to owner-level context (e.g., the owner's name for display).
 
 ![](image1.png)
 
